@@ -1,0 +1,16 @@
+fibonacci series need to be calculated
+recursevely itertate from value n to 1
+1.)base case
+if the value called recursevely is less than one then return one to the function 
+2.)recursive call
+if the base caase is not met then recurseivly calls for the previously two values
+3.)return statement
+at each recursive call (except the base case) return the recursive func for the previous two values as .....
+
+the objective of the puzzle is to move the entire the stack to another rod obeying the following rules :- 
+1. only one disk could be moved at a time.
+2. a disk can only move if it is the upper most disk on a stack.
+3. no disk could be placed on the top of the smaller disk.
+
+
+
