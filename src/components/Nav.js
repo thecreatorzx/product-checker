@@ -31,12 +31,20 @@ const Nav = () => {
           <Link to="/">Product Checker</Link>
         </h1>
         <div className="navs text-xl flex justify-evenly items-center w-2/5 font-medium">
-          <Link to="/">Home</Link>
-          <Link to="/">Scan</Link>
-          <Link to="/">Docs</Link>
-          <Link to="/">How</Link>
+          <Link to="/" className="hover:scale-125 transition-all">
+            Home
+          </Link>
+          <Link to="/" className="hover:scale-125 transition-all">
+            Scan
+          </Link>
+          <Link to="/" className="hover:scale-125 transition-all">
+            Docs
+          </Link>
+          <Link to="/" className="hover:scale-125 transition-all">
+            How
+          </Link>
         </div>
-        <button className="font-bold text-xl p-2 border-2 rounded-full hover:bg-gray-100">
+        <button className="font-bold text-xl p-2 border-2 rounded-full hover:bg-gray-100 hover:scale-110 transition-all">
           <Link to="/Login">Login</Link>
         </button>
       </motion.nav>

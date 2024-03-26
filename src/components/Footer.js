@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <div>
-      <div className="footer w-full h-96 bg-gray-900 bg-opacity-70 text-center ">
+      <div className="footer w-full h-auto bg-gray-900 bg-opacity-70 text-center">
         <div class="container">
           <div class="row">
             <div class="footer-col">
