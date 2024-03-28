@@ -16,7 +16,7 @@ const Login = (props) => {
           <br /> here is another error
         </div>
         <form
-          onSubmit={props.handleSubmit}
+          onSubmit={props.handleLogin}
           className="flex flex-col w-full h-60 justify-evenly items-center mt-3"
         >
           <input
