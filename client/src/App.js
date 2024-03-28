@@ -17,16 +17,15 @@ function App() {
     console.log(name, email, password);
 
     try {
-      const response = await axios.post("/signup", {
+      const response = await axios.post("http://localhost:5000/signup", {
         email: props.email,
         password: props.password,
         name: props.name,
       });
-      console.log(response.data); // Handle response from server
+      console.log(response.data.msg); // Handle response from server
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error.response.data.msg);
     }
-
   };
   let props = {
     name: name,

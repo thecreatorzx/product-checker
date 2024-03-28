@@ -11,9 +11,9 @@ const Footer = () => {
   return (
     <div>
       <div className="footer w-full h-auto bg-gray-900 bg-opacity-70 text-center">
-        <div class="container">
-          <div class="row">
-            <div class="footer-col">
+        <div className="container">
+          <div className="row">
+            <div className="footer-col">
               <h4>company</h4>
               <ul>
                 <li>
@@ -30,7 +30,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="footer-col">
+            <div className="footer-col">
               <h4>get help</h4>
               <ul>
                 <li>
@@ -50,7 +50,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="footer-col">
+            <div className="footer-col">
               <h4>online shop</h4>
               <ul>
                 <li>
@@ -67,28 +67,28 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div class="footer-col">
+            <div className="footer-col">
               <h4>follow us</h4>
-              <div class="social-links">
-                <a href="#" class="bg-white text-blue-800">
+              <div className="social-links">
+                <a href="#" className="bg-white text-blue-800">
                   <i>
                     <FaFacebook size={"40px"} />
                   </i>
                 </a>
-                <a href="#" class="bg-blue-600 text-white">
+                <a href="#" className="bg-blue-600 text-white">
                   <i>
                     <FaTwitter size={"40px"} />
                   </i>
                 </a>
                 <a
                   href="#"
-                  class=" bg-gradient-to-bl from-pink-700 to-yellow-600 text-white"
+                  className=" bg-gradient-to-bl from-pink-700 to-yellow-600 text-white"
                 >
                   <i>
                     <FaInstagram size={"40px"} />
                   </i>
                 </a>
-                <a href="#" class="bg-white text-blue-700 overflow-hidden">
+                <a href="#" className="bg-white text-blue-700 overflow-hidden">
                   <i>
                     <FaLinkedin size={"40px"} />
                   </i>
