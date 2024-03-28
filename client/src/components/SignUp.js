@@ -31,14 +31,12 @@ const SignUp = (props) => {
             onChange={(e) => props.setName(e.target.value)}
           />
           <input
-          <input
             id="username"
             type="text"
             placeholder="Create a Username"
             required
             value={props.username}
             onChange={(e) => props.setUsername(e.target.value)}
-          />
           />
           <input
             id="email"
