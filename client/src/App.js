@@ -12,58 +12,51 @@ function App() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const [message, setMessage] = useState("");
+  
   const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log(name, email, password);
+    console.log(name, username, email, password);
 
     try {
       const response = await axios.post("http://localhost:5000/signup", {
-        email: props.email,
-        password: props.password,
-        name: props.name,
+        name: name,
+        username: username,
+        email: email,
+        password: password,
       });
-      console.log(response.data.msg); // Handle response from server
+      console.log(response.data.message);
     } catch (error) {
-      console.error("Error:", error.response.data.msg);
+       console.log(error.response.data.message); 
     }
   };
+  
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log(email, password);
 
     try {
       const response = await axios.post("http://localhost:5000/login", {
-        email: props.email,
-        password: props.password,
+        email: email,
+        password: password,
       });
-      console.log(response.data.msg); // Handle response from server
+      console.log(response.data.message); // Handle response from server
     } catch (error) {
-      console.error("Error:", error.response.data.msg);
+      console.error(error.response.data.message);
     }
   };
-  let props = {
-    name: name,
-    setName: setName,
-    username: username,
-    setUsername: setUsername,
-    email: email,
-    setEmail: setEmail,
-    password: password,
-    setPassword: setPassword,
-    handleSignUp: handleSignUp,
-    handleLogin: handleLogin,
-  };
+
   return (
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/signup" element={<SignUp {...props} />} />
-        <Route path="/login" element={<Login {...props} />} />
+        <Route path="/signup" element={<SignUp name={name} setName={setName} username={username} setUsername={setUsername} email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleSignUp={handleSignUp} />} />
+        <Route path="/login" element={<Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} />} />
         <Route path="/" element={<Main />} />
       </Routes>
       <Footer />
     </div>
   );
 }
+
 
 export default App;
