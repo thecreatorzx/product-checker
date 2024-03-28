@@ -12,7 +12,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     console.log(name, email, password);
 
@@ -21,6 +21,20 @@ function App() {
         email: props.email,
         password: props.password,
         name: props.name,
+      });
+      console.log(response.data.msg); // Handle response from server
+    } catch (error) {
+      console.error("Error:", error.response.data.msg);
+    }
+  };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    console.log(email, password);
+
+    try {
+      const response = await axios.post("http://localhost:5000/login", {
+        email: props.email,
+        password: props.password,
       });
       console.log(response.data.msg); // Handle response from server
     } catch (error) {
@@ -36,7 +50,8 @@ function App() {
     setEmail: setEmail,
     password: password,
     setPassword: setPassword,
-    handleSubmit: handleSubmit,
+    handleSignUp: handleSignUp,
+    handleLogin: handleLogin,
   };
   return (
     <div className="App">
