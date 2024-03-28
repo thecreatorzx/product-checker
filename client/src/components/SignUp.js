@@ -15,9 +15,7 @@ const SignUp = (props) => {
           <br /> here is another error
         </div>
         <form
-        action="/signup"
-          method="post"
-          onSubmit={props.handleSubmit}
+          onSubmit={props.handleSignUp}
           className="flex flex-col w-full h-72 justify-evenly items-center mt-3"
         >
           <input
@@ -29,14 +27,14 @@ const SignUp = (props) => {
             value={props.name}
             onChange={(e) => props.setName(e.target.value)}
           />
-          {/* <input
+          <input
             id="username"
             type="text"
             placeholder="Username"
             required
             value={props.username}
             onChange={(e) => props.setUsername(e.target.value)}
-          /> */}
+          />
           <input
             id="email"
             type="text"

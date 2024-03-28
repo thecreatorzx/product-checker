@@ -14,13 +14,14 @@ function App() {
   const [password, setPassword] = useState("");
   const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log(name, email, password);
+    console.log(name, username, email, password);
 
     try {
       const response = await axios.post("http://localhost:5000/signup", {
         email: props.email,
         password: props.password,
         name: props.name,
+        username: props.username,
       });
       console.log(response.data.msg); // Handle response from server
     } catch (error) {
