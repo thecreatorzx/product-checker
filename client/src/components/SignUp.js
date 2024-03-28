@@ -1,7 +1,12 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-// add reflection animation to signup button
+
 const SignUp = (props) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.handleSignUp(e);
+  };
+
   return (
     <div className="formSignWindow flex justify-center items-center w-full h-screen bg-gray-300">
       <div className="formSign w-96 h-auto bg-gray-50 rounded-xl overflow-hidden -translate-y-10">
@@ -9,8 +14,6 @@ const SignUp = (props) => {
           Sign Up
         </h1>
         <div className="message text-center bg-red-300 w-full h-auto mb-1 pl-2 capitalize">
-          {/* {errorMessage()}
-          {successMessage()} */}
           hello here is an error
           <br /> here is another error
         </div>
@@ -28,12 +31,14 @@ const SignUp = (props) => {
             onChange={(e) => props.setName(e.target.value)}
           />
           <input
+          <input
             id="username"
             type="text"
-            placeholder="Username"
+            placeholder="Create a Username"
             required
             value={props.username}
             onChange={(e) => props.setUsername(e.target.value)}
+          />
           />
           <input
             id="email"
@@ -52,18 +57,9 @@ const SignUp = (props) => {
             value={props.password}
             onChange={(e) => props.setPassword(e.target.value)}
           />
-          {/* <input
-            id="cnfmpassword"
-            type="cnfmpassword"
-            placeholder="Confirm password"
-            required
-            maxLength={20}
-            value={props.password}
-            onChange={(e) => props.setPassword(e.target.value)}
-          /> */}
           <button
             type="submit"
-            className=" border-2 font-medium mt-1 p-2 px-8 rounded-full hover:bg-gray-200 hover:border-gray-300"
+            className="border-2 font-medium mt-1 p-2 px-8 rounded-full hover:bg-gray-200 hover:border-gray-300"
           >
             Sign Up
           </button>
