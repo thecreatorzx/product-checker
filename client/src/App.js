@@ -24,7 +24,7 @@ function App() {
   };
   const handleSignUp = async (e) => {
     e.preventDefault();
-    if (!email.endsWith("@gmail.com")) {
+    if (!email.toLowerCase().endsWith("@gmail.com")) {
       reset();
       setMatch("Please Enter a valid email");
       return;
@@ -44,7 +44,7 @@ function App() {
         password: props.password,
         name: props.name,
       });
-      console.log(response.data.msg); // Handle response from server
+      console.log(response); // Handle response from server
     } catch (error) {
       console.error("Error:", error.response.data.msg);
     }
@@ -58,7 +58,7 @@ function App() {
         email: props.email,
         password: props.password,
       });
-      console.log(response.data.msg); // Handle response from server
+      console.log("response", response.data.msg); // Handle response from server
     } catch (error) {
       console.error("Error:", error.response.data.msg);
     }
