@@ -15,6 +15,8 @@ const SignUp = (props) => {
           <br /> here is another error
         </div>
         <form
+        action="/signup"
+          method="post"
           onSubmit={props.handleSubmit}
           className="flex flex-col w-full h-72 justify-evenly items-center mt-3"
         >
