@@ -27,14 +27,14 @@ const SignUp = (props) => {
             value={props.name}
             onChange={(e) => props.setName(e.target.value)}
           />
-          <input
+          {/* <input
             id="username"
             type="text"
             placeholder="Username"
             required
             value={props.username}
             onChange={(e) => props.setUsername(e.target.value)}
-          />
+          /> */}
           <input
             id="email"
             type="text"
@@ -46,12 +46,21 @@ const SignUp = (props) => {
           <input
             id="password"
             type="password"
-            placeholder="Password"
+            placeholder="Create a strong password"
             required
             maxLength={20}
             value={props.password}
             onChange={(e) => props.setPassword(e.target.value)}
           />
+          {/* <input
+            id="cnfmpassword"
+            type="cnfmpassword"
+            placeholder="Confirm password"
+            required
+            maxLength={20}
+            value={props.password}
+            onChange={(e) => props.setPassword(e.target.value)}
+          /> */}
           <button
             type="submit"
             className=" border-2 font-medium mt-1 p-2 px-8 rounded-full hover:bg-gray-200 hover:border-gray-300"
