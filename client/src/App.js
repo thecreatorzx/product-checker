@@ -12,12 +12,31 @@ function App() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [message, setMessage] = useState("");
-  
+  const [confPass, setConfPass] = useState("");
+  const [match, setMatch] = useState("");
+  const reset = () => {
+    setName("");
+    setEmail("");
+    setUsername("");
+    setPassword("");
+    setConfPass("");
+    setMatch("");
+  };
   const handleSignUp = async (e) => {
     e.preventDefault();
-    console.log(name, username, email, password);
-    console.log(name, username, email, password);
+    if (!email.endsWith("@gmail.com")) {
+      reset();
+      setMatch("Please Enter a valid email");
+      return;
+    }
+    if (password !== confPass) {
+      setPassword("");
+      setConfPass("");
+      setMatch("passwords do not match");
+      return;
+    }
+    reset();
+    console.log(name, email, password);
 
     try {
       const response = await axios.post("http://localhost:5000/signup", {
@@ -45,7 +64,21 @@ function App() {
       console.error(error.response.data.message);
     }
   };
-
+  let props = {
+    name: name,
+    setName: setName,
+    username: username,
+    setUsername: setUsername,
+    email: email,
+    setEmail: setEmail,
+    password: password,
+    setPassword: setPassword,
+    handleSignUp: handleSignUp,
+    handleLogin: handleLogin,
+    confPass: confPass,
+    setConfPass: setConfPass,
+    match: match,
+  };
   return (
     <div className="App">
       <Nav />

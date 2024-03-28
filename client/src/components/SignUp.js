@@ -14,8 +14,9 @@ const SignUp = (props) => {
           Sign Up
         </h1>
         <div className="message text-center bg-red-300 w-full h-auto mb-1 pl-2 capitalize">
-          hello here is an error
-          <br /> here is another error
+          {/* {errorMessage()}
+          {successMessage()} */}
+          <div className="passError text-red-500 capitalize">{props.match}</div>
         </div>
         <form
           onSubmit={props.handleSignUp}
@@ -27,13 +28,15 @@ const SignUp = (props) => {
             type="text"
             placeholder="Name"
             required
+            maxLength={30}
             value={props.name}
             onChange={(e) => props.setName(e.target.value)}
           />
           <input
             id="username"
             type="text"
-            placeholder="Create a Username"
+            placeholder="Username"
+            maxLength={25}
             required
             value={props.username}
             onChange={(e) => props.setUsername(e.target.value)}
@@ -42,6 +45,7 @@ const SignUp = (props) => {
             id="email"
             type="text"
             placeholder="Email"
+            maxLength={50}
             required
             value={props.email}
             onChange={(e) => props.setEmail(e.target.value)}
@@ -49,11 +53,20 @@ const SignUp = (props) => {
           <input
             id="password"
             type="password"
-            placeholder="Create a strong password"
+            placeholder="Password"
             required
             maxLength={20}
             value={props.password}
             onChange={(e) => props.setPassword(e.target.value)}
+          />
+          <input
+            id="confirm"
+            type="confirm"
+            placeholder="Confirm password"
+            required
+            maxLength={20}
+            value={props.confPass}
+            onChange={(e) => props.setConfPass(e.target.value)}
           />
           <button
             type="submit"
