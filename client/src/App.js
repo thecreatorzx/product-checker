@@ -45,7 +45,7 @@ function App() {
         password: props.password,
         name: props.name,
       });
-      console.log(response.data.msg); // Handle response from server
+      console.log(response); // Handle response from server
     } catch (error) {
       console.error("Error:", error.response.data.msg);
     }
