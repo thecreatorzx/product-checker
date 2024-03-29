@@ -24,7 +24,7 @@ function App() {
   };
   const handleSignUp = async (e) => {
     e.preventDefault();
-    if (!email.endsWith("@gmail.com")) {
+    if (!email.toLowerCase().endsWith("@gmail.com")) {
       reset();
       setMatch("Please Enter a valid email");
       return;
@@ -41,27 +41,27 @@ function App() {
     try {
       const response = await axios.post("http://localhost:5000/signup", {
         email: props.email,
+        username: props.username,
         password: props.password,
         name: props.name,
-        username: props.username,
       });
-      console.log(response.data.message);
+      console.log(response.data.msg); // Handle response from server
     } catch (error) {
-       console.log(error.response.data.message); 
+      console.error("Error:", error.response.data.msg);
     }
   };
-  
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log(email, password);
 
     try {
       const response = await axios.post("http://localhost:5000/login", {
-        email: email,
-        password: password,
+        email: props.email,
+        password: props.password,
       });
-      console.log(response.data.message); // Handle response from server
+      console.log("response", response.data.msg); // Handle response from server
     } catch (error) {
-      console.error(error.response.data.message);
+      console.error("Error:", error.response.data.msg);
     }
   };
   let props = {
@@ -83,14 +83,13 @@ function App() {
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/signup" element={<SignUp name={name} setName={setName} username={username} setUsername={setUsername} email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleSignUp={handleSignUp} />} />
-        <Route path="/login" element={<Login email={email} setEmail={setEmail} password={password} setPassword={setPassword} handleLogin={handleLogin} />} />
+        <Route path="/signup" element={<SignUp {...props} />} />
+        <Route path="/login" element={<Login {...props} />} />
         <Route path="/" element={<Main />} />
       </Routes>
       <Footer />
     </div>
   );
 }
-
 
 export default App;

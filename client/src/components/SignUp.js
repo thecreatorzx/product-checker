@@ -1,12 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-
+// add reflection animation to signup button
 const SignUp = (props) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    props.handleSignUp(e);
-  };
-
   return (
     <div className="formSignWindow flex justify-center items-center w-full h-screen bg-gray-300">
       <div className="formSign w-96 h-auto bg-gray-50 rounded-xl overflow-hidden -translate-y-10">
@@ -70,7 +65,7 @@ const SignUp = (props) => {
           />
           <button
             type="submit"
-            className="border-2 font-medium mt-1 p-2 px-8 rounded-full hover:bg-gray-200 hover:border-gray-300"
+            className=" border-2 font-medium mt-1 p-2 px-8 rounded-full hover:bg-gray-200 hover:border-gray-300"
           >
             Sign Up
           </button>
