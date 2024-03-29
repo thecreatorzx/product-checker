@@ -41,7 +41,7 @@ app.post("/login", async (req, res) => {
   const user = await User.findOne({ email: email });
   if (user != null) {
     if (user.password == password) {
-      console.log("success", `welcome + ${user.username}`);
+      console.log("success", `welcome ${user.username}`);
       res.status(200).json({ msg: `welcome ${user.username}` });
     } else {
       console.log("error", "password doesn't match");
