@@ -3,9 +3,16 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import ProfilePage from "./components/ProfilePage";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [name, setName] = useState("");
@@ -14,6 +21,8 @@ function App() {
   const [password, setPassword] = useState("");
   const [confPass, setConfPass] = useState("");
   const [match, setMatch] = useState("");
+  const [logged, setLogged] = useState(false);
+  const navigate = useNavigate();
   const reset = () => {
     setName("");
     setEmail("");
@@ -40,25 +49,32 @@ function App() {
 
     try {
       const response = await axios.post("http://localhost:5000/signup", {
-        email: props.email,
-        password: props.password,
-        name: props.name,
+        email: email,
+        password: password,
+        name: name,
+        username: username,
       });
-      console.log(response); // Handle response from server
+      console.log("response", response.data.msg); // Handle response from server
+      navigate("/login");
     } catch (error) {
       console.error("Error:", error.response.data.msg);
     }
   };
   const handleLogin = async (e) => {
     e.preventDefault();
+    reset();
     console.log(email, password);
 
     try {
       const response = await axios.post("http://localhost:5000/login", {
-        email: props.email,
-        password: props.password,
+        email: email,
+        password: password,
       });
+      setLogged(response.data.success);
       console.log("response", response.data.msg); // Handle response from server
+      setName(response.data.data.name);
+      setUsername(response.data.data.username);
+      navigate("/");
     } catch (error) {
       console.error("Error:", error.response.data.msg);
     }
@@ -77,13 +93,15 @@ function App() {
     confPass: confPass,
     setConfPass: setConfPass,
     match: match,
+    logged,
   };
   return (
     <div className="App">
-      <Nav />
+      <Nav {...props} />
       <Routes>
         <Route path="/signup" element={<SignUp {...props} />} />
         <Route path="/login" element={<Login {...props} />} />
+        <Route path="/profilePage" element={<ProfilePage {...props} />} />
         <Route path="/" element={<Main />} />
       </Routes>
       <Footer />

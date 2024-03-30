@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Link, Outlet } from "react-router-dom";
+import Profile from "./Profile";
 
-const Nav = () => {
+const Nav = ({ logged }) => {
   const { scrollY } = useScroll();
 
   const [hidden, setHidden] = useState(false);
@@ -30,7 +31,7 @@ const Nav = () => {
         <h1 className="logo workbench text-3xl w-1/2 pl-5">
           <Link to="/">Product Checker</Link>
         </h1>
-        <div className="navs text-xl flex justify-evenly items-center w-2/5 font-medium">
+        <div className="navs text-xl flex justify-evenly items-center w-2/5 font-medium md:pl-32">
           <Link to="/" className="hover:scale-125 transition-all">
             Home
           </Link>
@@ -44,9 +45,15 @@ const Nav = () => {
             How
           </Link>
         </div>
-        <button className="font-bold text-xl p-2 border-2 rounded-full hover:bg-gray-100 hover:scale-110 transition-all">
-          <Link to="/Login">Login</Link>
-        </button>
+        {!logged ? (
+          <button className="font-bold text-xl p-2 border-2 rounded-full hover:bg-gray-100 hover:scale-110 transition-all">
+            <Link to="/Login">Login</Link>
+          </button>
+        ) : (
+          <Profile />
+        )}
+
+        {null}
       </motion.nav>
       <Outlet />
     </>
