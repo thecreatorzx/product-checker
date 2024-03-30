@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import ProfilePage from "./components/ProfilePage";
+import ScanPage from "./components/ScanPage";
 import axios from "axios";
 import {
   BrowserRouter as Router,
@@ -102,6 +103,7 @@ function App() {
         <Route path="/signup" element={<SignUp {...props} />} />
         <Route path="/login" element={<Login {...props} />} />
         <Route path="/profilePage" element={<ProfilePage {...props} />} />
+        <Route path="/scanPage" element={<ScanPage {...props} />} />
         <Route path="/" element={<Main />} />
       </Routes>
       <Footer />

@@ -10,7 +10,7 @@ const Scanner = () => {
           <div className="scanpic"></div>
           <div className="defaultStyle text-2xl font-bold">
             <Link
-              to="/signup"
+              to="/scanPage"
               className="text-white p-5 py-2 bg-pink-600 rounded-lg border-2 border-dotted hover:bg-pink-700"
             >
               Scan Now

@@ -41,6 +41,12 @@ html{
     "BLED" 0,
     "SCAN" -10;
 }
+/* .dropdown{
+  transform: translate(-9rem,0.75rem);
+}
+.profileBox:focus-within .dropdown{
+  background: green;
+} */
 
 /* login and sign up */
 form input {
