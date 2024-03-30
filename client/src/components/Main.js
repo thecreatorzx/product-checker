@@ -4,14 +4,14 @@ import Scanner from "./main/Scanner";
 import Why from "./main/Why";
 import About from "./main/About";
 
-const Main = () => {
+const Main = ({ logged }) => {
   return (
     <div>
       <div className="sticky top-10 -z-10">
         <div className="main sticky"></div>
       </div>
       <Hero />
-      <Scanner />
+      <Scanner logged={logged} />
       <Why />
       <About />
     </div>

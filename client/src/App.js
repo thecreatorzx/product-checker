@@ -94,7 +94,8 @@ function App() {
     confPass: confPass,
     setConfPass: setConfPass,
     match: match,
-    logged,
+    logged: logged,
+    setLogged: setLogged,
   };
   return (
     <div className="App">
@@ -104,7 +105,7 @@ function App() {
         <Route path="/login" element={<Login {...props} />} />
         <Route path="/profilePage" element={<ProfilePage {...props} />} />
         <Route path="/scanPage" element={<ScanPage {...props} />} />
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main {...props} />} />
       </Routes>
       <Footer />
     </div>

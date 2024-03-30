@@ -9,6 +9,7 @@
     "axios": "^1.6.8",
     "firebase": "^10.9.0",
     "framer-motion": "^11.0.20",
+    "html5-qrcode": "^2.3.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",

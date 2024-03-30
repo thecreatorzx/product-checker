@@ -35,9 +35,15 @@ const Nav = ({ logged }) => {
           <Link to="/" className="hover:scale-125 transition-all">
             Home
           </Link>
-          <Link to="/" className="hover:scale-125 transition-all">
-            Scan
-          </Link>
+          {logged ? (
+            <Link to="/scanPage" className="hover:scale-125 transition-all">
+              Scan
+            </Link>
+          ) : (
+            <Link to="/login" className="hover:scale-125 transition-all">
+              Scan
+            </Link>
+          )}
           <Link to="/" className="hover:scale-125 transition-all">
             Docs
           </Link>
