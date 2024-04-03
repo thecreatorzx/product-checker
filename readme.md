@@ -12,6 +12,9 @@ Product-Checker is an app that scans barCode or Qr and displays the ingredients,
 
 # How to Install and Run the Project
 
+- Fork the repo and deselect
+  "Copy the master branch only" option as server is the current branch we are working on and main is a lot behind .
+
 - Install Node, MongoDB-Compass, and VS code to get started.
 
 - Run "npm install" or "yarn"(if u use yarn) on terminal to get all the required dependencies installed.
