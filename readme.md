@@ -21,6 +21,8 @@ Product-Checker is an app that scans barCode or Qr and displays the ingredients,
 
 - In MongoDB Compass connect to localhost:27017(present by default).
 
+- Go to the server branch by typing "git checkout server" on the terminal of root directory.(if it shows error then type whatever the terminal advices.)
+
 - Go to client directory in terminal and run "npm start/yarn start" to start the Frontend react app on localhost:3000.
 
 - Got to server directory in terminal and run "npm run dev" to start the backend with nodemon(installed as a dependency) running on localhost:5000.
