@@ -8,7 +8,7 @@ Product-Checker is an app that scans barCode or Qr and displays the ingredients,
 
 - Info is then displayed in visual format using different types of representations such as graph, chart etc. (not implemented yet)
 
-- I have used react for frontend part and node(express) for backend, while mongo db is our storage space(local server).
+- I have used react and tailwind for frontend part and node(express) for backend, while mongo db is our storage space(local server).
 
 # How to Install and Run the Project
 
@@ -24,6 +24,8 @@ Product-Checker is an app that scans barCode or Qr and displays the ingredients,
 - Go to the server branch by typing "git checkout server" on the terminal of root directory.(if it shows error then type whatever the terminal advices.)
 
 - Go to client directory in terminal and run "npm start/yarn start" to start the Frontend react app on localhost:3000.
+
+- The styling portion is done using tailwind which can be done by running the following command in your client directory in terminal " npx tailwindcss -i ./src/tailwindcss/input.css -o ./src/tailwindcss/output.css --watch "
 
 - Got to server directory in terminal and run "npm run dev" to start the backend with nodemon(installed as a dependency) running on localhost:5000.
 
