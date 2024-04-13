@@ -6,14 +6,13 @@ import Login from "./components/Login";
 import ProfilePage from "./components/ProfilePage";
 import ScanPage from "./components/ScanPage";
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Toaster, toast } from "react-hot-toast";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "./context/userContext";
+import { UserContextProvider } from "./context/userContext";
+axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.withCredentials = true;
 
 function App() {
   const [name, setName] = useState("");
@@ -22,7 +21,8 @@ function App() {
   const [password, setPassword] = useState("");
   const [confPass, setConfPass] = useState("");
   const [match, setMatch] = useState("");
-  const [logged, setLogged] = useState(false);
+  const { log } = useContext(UserContext);
+  const [logged, setLogged] = useState(log);
   const navigate = useNavigate();
   const reset = () => {
     setName("");
@@ -37,49 +37,73 @@ function App() {
     if (!email.toLowerCase().endsWith("@gmail.com")) {
       reset();
       setMatch("Please Enter a valid email");
+      toast.error("Please Enter a valid email!!");
       return;
     }
     if (password !== confPass) {
       setPassword("");
       setConfPass("");
       setMatch("passwords do not match");
+      toast.error("Passwords do not match!!");
       return;
     }
-    reset();
-    console.log(name, email, password);
 
     try {
-      const response = await axios.post("http://localhost:5000/signup", {
-        email: email,
-        password: password,
-        name: name,
-        username: username,
+      const response = await axios.post("/signup", {
+        email,
+        password,
+        name,
+        username,
       });
-      console.log("response", response.data.msg); // Handle response from server
-      navigate("/login");
+      if (!response.data.success) {
+        toast.error(response.data.msg);
+      } else {
+        reset();
+        navigate("/login");
+        toast.success(response.data.msg); // Handle response from server
+      }
     } catch (error) {
       console.error("Error:", error.response.data.msg);
     }
   };
   const handleLogin = async (e) => {
     e.preventDefault();
-    reset();
-    console.log(email, password);
-
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        email: email,
-        password: password,
+      const response = await axios.post("/login", {
+        email,
+        password,
       });
-      setLogged(response.data.success);
-      console.log("response", response.data.msg); // Handle response from server
-      setName(response.data.data.name);
-      setUsername(response.data.data.username);
-      navigate("/");
+      if (!response.data.success) {
+        toast.error(response.data.msg);
+      } else {
+        reset();
+        setLogged(response.data.success);
+        toast.success("Login Successful");
+        navigate("/");
+        window.location.reload();
+      }
     } catch (error) {
-      console.error("Error:", error.response.data.msg);
+      console.error("Error:", error);
     }
   };
+  const handleGLogin = async (data) => {
+    try {
+      const response = await axios.post("/gLogin", {
+        data,
+      });
+      console.log(response);
+      if (!response.data.success) {
+        toast.error(response.data.msg);
+      } else {
+        navigate("/");
+        setLogged(response.data.success);
+        toast.success("Login Successful");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   let props = {
     name: name,
     setName: setName,
@@ -96,10 +120,15 @@ function App() {
     match: match,
     logged: logged,
     setLogged: setLogged,
+    handleGLogin: handleGLogin,
   };
+  useEffect(() => {
+    setLogged(log);
+  }, []);
   return (
-    <div className="App">
+    <UserContextProvider>
       <Nav {...props} />
+      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <Routes>
         <Route path="/signup" element={<SignUp {...props} />} />
         <Route path="/login" element={<Login {...props} />} />
@@ -108,7 +137,7 @@ function App() {
         <Route path="/" element={<Main {...props} />} />
       </Routes>
       <Footer />
-    </div>
+    </UserContextProvider>
   );
 }
 

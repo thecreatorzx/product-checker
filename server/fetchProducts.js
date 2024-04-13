@@ -28,7 +28,7 @@ async function getProductInfo(barcode) {
   }
 }
 
-const barcode = "8901063139374";
+const barcode = "";
 getProductInfo(barcode);
 
 getProductInfo(barcode)

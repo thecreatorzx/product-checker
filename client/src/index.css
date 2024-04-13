@@ -67,6 +67,10 @@ form input:focus{
   border: 1px solid #333a;
   outline: none;
 }
+.profilePic{
+  background: url("./assets/user1.jpg");
+  background-size: cover;
+}
 /* main */
 
 .main::before,.main::after{

@@ -10,10 +10,8 @@ const Login = (props) => {
           Login
         </h1>
         <div className="message text-center bg-red-300 w-full h-auto mb-1 pl-2 capitalize">
-          {/* {errorMessage()}
-          {successMessage()} */}
-          hello here is an error
-          <br /> here is another error
+          {/* hello here is an error
+          <br /> here is another error */}
         </div>
         <form
           onSubmit={props.handleLogin}
@@ -39,12 +37,12 @@ const Login = (props) => {
           />
           <button
             type="submit"
-            className=" border-2 font-medium p-2 px-8 rounded-full hover:bg-slate-200 hover:border-gray-300"
+            className=" border-2 font-medium p-2 px-8 rounded-full hover:bg-slate-200 hover:border-gray-400"
           >
             Login
           </button>
           <div className="flex justify-center w-2/4 pt-2 border-t-2 border-dashed border-gray-300">
-            <GLogin />
+            <GLogin {...props} />
           </div>
         </form>
         <div className="loginLink text-center mb-5 ">

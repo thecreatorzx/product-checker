@@ -31,3 +31,50 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+// <h1 className="flex defaultStyle font-bold justify-center items-center h-20 uppercase text-4xl">
+//           User Profile
+//         </h1>
+//         <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+//           <div className="bg-white p-8 rounded shadow-md w-96 flex">
+//             <div className="mr-8">
+//               <img
+//                 src={props.image}
+//                 alt="Avatar"
+//                 className="w-40 h-40 m-5 rounded-full"
+//               />
+//             </div>
+//             <div>
+//               <div className="mb-4">
+//                 <label className="block text-gray-700 font-bold mb-2">
+//                   Username:
+//                 </label>
+//                 <p className="text-gray-800">{props.username}</p>
+//               </div>
+//               <div className="mb-4">
+//                 <label className="block text-gray-700 font-bold mb-2">
+//                   Name:
+//                 </label>
+//                 <p className="text-gray-800">{props.username}</p>
+//               </div>
+//               <div className="mb-4">
+//                 <label className="block text-gray-700 font-bold mb-2">
+//                   Email:
+//                 </label>
+//                 <p className="text-gray-800">{props.email}</p>
+//               </div>
+//               <div className="mb-4">
+//                 <label className="block text-gray-700 font-bold mb-2">
+//                   Bio:
+//                 </label>
+//                 <p className="text-gray-800">{props.bio}</p>
+//               </div>
+//               <div className="mb-4">
+//                 <label className="block text-gray-700 font-bold mb-2">
+//                   Location:
+//                 </label>
+//                 <p className="text-gray-800">{props.location}</p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>

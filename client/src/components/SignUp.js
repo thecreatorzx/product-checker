@@ -1,4 +1,5 @@
 import React from "react";
+import { Toast } from "react-hot-toast";
 import { Link, Outlet } from "react-router-dom";
 // add reflection animation to signup button
 const SignUp = (props) => {
@@ -65,7 +66,7 @@ const SignUp = (props) => {
           />
           <button
             type="submit"
-            className=" border-2 font-medium mt-1 p-2 px-8 rounded-full hover:bg-gray-200 hover:border-gray-300"
+            className=" border-2 font-medium mt-1 p-2 px-8 rounded-full hover:bg-gray-200 hover:border-gray-400"
           >
             Sign Up
           </button>

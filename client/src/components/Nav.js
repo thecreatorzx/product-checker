@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Link, Outlet } from "react-router-dom";
 import Profile from "./Profile";
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
 
 const Nav = ({ logged }) => {
   const { scrollY } = useScroll();
 
+  const { log } = useContext(UserContext);
   const [hidden, setHidden] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (lat) => {
@@ -35,7 +38,7 @@ const Nav = ({ logged }) => {
           <Link to="/" className="hover:scale-125 transition-all">
             Home
           </Link>
-          {logged ? (
+          {logged || log ? (
             <Link to="/scanPage" className="hover:scale-125 transition-all">
               Scan
             </Link>
@@ -51,7 +54,7 @@ const Nav = ({ logged }) => {
             How
           </Link>
         </div>
-        {!logged ? (
+        {!log ? (
           <button className="font-bold text-xl p-2 border-2 rounded-full hover:bg-gray-100 hover:scale-110 transition-all">
             <Link to="/Login">Login</Link>
           </button>
