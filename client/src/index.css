@@ -24,6 +24,14 @@ html{
   overflow-x: hidden;
 }
 
+.image2{
+  width: 300px; 
+  height: 300px;
+  top: 0;
+  border-radius: 50%;
+  background: url("https://images.unsplash.com/photo-1712174426543-eb917dbd7e5d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+}
 /* nav */
 .logo{
   background: linear-gradient(to right,  
