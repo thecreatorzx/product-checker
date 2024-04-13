@@ -5,6 +5,9 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import Docs from "./components/Docs";
+import How from "./components/How";
+import Profile from "./components/Profile";
 
 function App() {
   const [name, setName] = useState("");
@@ -33,6 +36,9 @@ function App() {
         <Route path="/signup" element={<SignUp {...props} />} />
         <Route path="/login" element={<Login {...props} />} />
         <Route path="/" element={<Main />} />
+        <Route path="/docs" element={<Docs />} />
+        <Route path="/how" element={<How />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </div>

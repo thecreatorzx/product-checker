@@ -37,11 +37,14 @@ const Nav = () => {
           <Link to="/" className="hover:scale-125 transition-all">
             Scan
           </Link>
-          <Link to="/" className="hover:scale-125 transition-all">
+          <Link to="/docs" className="hover:scale-125 transition-all">
             Docs
           </Link>
-          <Link to="/" className="hover:scale-125 transition-all">
+          <Link to="/how" className="hover:scale-125 transition-all">
             How
+          </Link>
+          <Link to="/profile" className="hover:scale-125 transition-all">
+            Profile
           </Link>
         </div>
         <button className="font-bold text-xl p-2 border-2 rounded-full hover:bg-gray-100 hover:scale-110 transition-all">
